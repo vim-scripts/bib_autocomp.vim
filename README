@@ -1,0 +1,74 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2737
+
+  This filetype plugin does autocompletion of BibTeX entries in *.bib files.
+  When you type the beginning of a BibTeX entry (e.g. @article{), it will
+  try to complete it. The completed result might then look like this
+  (see configuration options for customization):
+    @article{<cursor position>,
+	      author = {},
+        title = {},
+        journal = {},
+        year = {}
+    }
+
+  Configuration options for this plugin (you can set them in your $HOME/.vimrc):
+   - g:bib_autocomp_enable (0 or 1, default 1)
+       Enables/disables this plugin.
+   - g:bib_autocomp_tag_indent (string, default "\<Tab>")
+       Indention of tags inside a BibTeX entry. So for example, if you want
+       each tag to be indented by four spaces, set this to "    ". Or if
+       you want to indent by two tabs, set this to "\<Tab>\<Tab>".
+   - g:bib_autocomp_tag_content_enclosing (string, default '{}')
+       Enclosing of a tag content. If you prefer quotes to curly brackets,
+       set this to '""' (the tag will then look like this: author = "").
+   - g:bib_autocomp_trim_last_comma (0 or 1, default 1)
+       When set to 1, it will omit the last comma in the tag list (so
+       the result will look as the @article one in the previous paragraph).
+       If you want to keep the comma after the last tag, set this to 0.
+   - g:bib_autocomp_special_entries (list of strings, default ['string',
+       'preamble', 'comment'])
+       List of entries, which are considered "special". A special entry
+       is not a type of a publication, so these entries will be completed
+       just with the enclosing curly brackets, e.g. @comment{}
+       (see http://www.bibtex.org/Format/ for more info).
+   - g:bib_autocomp_entry_mapping (dictionary, read on for info)
+       This dictionary defines a mapping between a BibTeX entry name
+       and the list of tags it should contain. It is by default initialized
+       to all standard entries (see http://en.wikipedia.org/wiki/Bibtex)
+       and all required tags for each entry are inserted.
+       If you want to add some entry or change the list of tags, set the
+       configuration variable in your configuration file as follows:
+         let g:bib_autocomp_entry_mapping = {
+           \ 'entry-name': ['first-tag', 'second-tag', ...]
+           \ }
+       So for example, if you want to change the list of tags for the
+       @misc entry, set the variable in this fashion:
+         let g:bib_autocomp_entry_mapping = {
+           \ 'misc': ['author', 'title', 'howpublished', 'url']
+           \ }
+       If you also want to add some custom entry, then use this template:
+         let g:bib_autocomp_entry_mapping = {
+           \ 'misc': ['author', 'title', 'howpublished', 'url'],
+           \ 'custom': ['author', 'title', 'url']
+           \ }
+       As you can see, it is just a dictionary written in the Vimscript
+       language.
+
+Requirements:
+  - filetype plugin must be enabled (a line like 'filetype plugin on' must
+    be in your $HOME/.vimrc [*nix] or %UserProfile%\_vimrc [MS Windows])
+
+Installation Details:
+  Put this file into your $HOME/.vim/ftplugin directory [*nix]
+  or %UserProfile%\vimfiles\ftplugin folder [MS Windows].
+
+Notes:
+ This script is by all means NOT perfect, but it works for me and suits my
+ needs very well, so it might be also useful for you. Your feedback,
+ opinion, suggestions, bug reports, patches, simply anything you have
+ to say is welcomed!
+
+Changelog:
+  1.0 (2009-08-11)
+    - Initial release version of this script.
+
