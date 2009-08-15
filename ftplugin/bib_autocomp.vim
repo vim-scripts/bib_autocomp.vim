@@ -1,8 +1,8 @@
 " File:        bib_autocomp.vim
 " Brief:       Autocompletion of BibTeX entries
 " Author:      Petr Zemek, s3rvac AT gmail DOT com
-" Version:     1.0
-" Last Change: Tue Aug 11 11:17:47 CEST 2009
+" Version:     1.0.1
+" Last Change: Sat Aug 15 22:14:36 CEST 2009
 "
 " License:
 "   Copyright (C) 2009 Petr Zemek
@@ -21,6 +21,13 @@
 "   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 "
 " Description:
+"   Note: When I wrote this plugin I didn't know about the snipMate plugin
+"         (http://www.vim.org/scripts/script.php?script_id=2540). It offers
+"         much more features than this plugin, but you have to create your
+"         own snippets for *.bib files (there are no default one for
+"         the BibTeX filetype). You are encouraged to check it out before
+"         you start using this plugin.
+"
 "   This filetype plugin does autocompletion of BibTeX entries in *.bib files.
 "   When you type the beginning of a BibTeX entry (e.g. @article{), it will
 "   try to complete it. The completed result might then look like this
@@ -80,8 +87,8 @@
 "     be in your $HOME/.vimrc [*nix] or %UserProfile%\_vimrc [MS Windows])
 "
 " Installation Details:
-"   Put this file into your $HOME/.vim/plugin directory [*nix]
-"   or %UserProfile%\vimfiles\plugin folder [MS Windows].
+"   Put this file into your $HOME/.vim/ftplugin directory [*nix]
+"   or %UserProfile%\vimfiles\ftplugin folder [MS Windows].
 "
 " Notes:
 "  This script is by all means NOT perfect, but it works for me and suits my
@@ -90,6 +97,8 @@
 "  to say is welcomed!
 "
 " Changelog:
+"   1.0.1 (2009-08-15)
+"     - Documentation changes.
 "   1.0 (2009-08-11)
 "     - Initial release version of this script.
 "
